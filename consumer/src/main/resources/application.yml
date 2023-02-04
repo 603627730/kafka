@@ -1,0 +1,17 @@
+spring:
+  kafka:
+    bootstrap-servers: 139.196.6.43:9092
+    consumer:
+      auto-commit-interval: 5000 #自动提交消费位移时间隔时间
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      max-poll-records: 500 #批量消费每次最多消费多少条消息
+      enable-auto-commit: true #开启自动提交消费位移
+      auto-offset-reset: latest #其他earliest、none
+      group-id: kafka.consumer.group #消费者组名称
+      client-id: kafka.consumer.client.id #消费者客户端ID
+      fetch-max-wait: 400 #最大等待时间
+      fetch-min-size: 1 #最小消费字节数
+      heartbeat-interval: 3000 #分组管理时心跳到消费者协调器之间的预计时间
+      isolation-level: read_committed
+    topic-name: test
